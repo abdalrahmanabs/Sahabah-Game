@@ -9,7 +9,7 @@ public class LevelManager : MonoBehaviour
     [SerializeField] private QuestionTemplate[] questions;
     [SerializeField] private TextMeshProUGUI txtQuestion;
     [SerializeField] private Button[] btnAnswers;
-
+    [SerializeField] TextMeshProUGUI txtCorrectAnswer,txtWrongAnswer;
     private int correctAnswer;
 
     private void Start()
@@ -42,11 +42,13 @@ public class LevelManager : MonoBehaviour
     {
         if (btnId == correctAnswer)
         {
-            Debug.Log("Correct answer");
+            txtWrongAnswer.gameObject.SetActive(false);
+            txtCorrectAnswer.gameObject.SetActive(true);
         }
         else
         {
-            Debug.Log("Wrong answer");
+            txtWrongAnswer.gameObject.SetActive(true);
+            txtCorrectAnswer.gameObject.SetActive(false);
         }
     }
 
